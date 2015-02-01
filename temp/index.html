@@ -4,14 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Title</title>
+    <title>Five Day Forecast</title>
+    <link rel="stylesheet" href="vendor/foundation/css/foundation.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato" type="text/css">
   </head>
   <body>
-    <!-- [if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <div class="container"><img src="img/NSS-logo-primary.svg" alt="NSS Logo" title="Nashville Software School">
-      <h1>Hello World</h1>
+    <div class="wrapper">
+      <h1 class="main-header">Find Your Forecast</h1>
+      <button id="location" class="button">Find Me</button>
+      <input id="inputZip" type="text" placeholder="Enter your ZIP..." class="inputZip">
+      <button id="userZip" class="button">Submit</button>
+      <h2>Five Day Forecast
+        <ul id="forecastList" class="forecastList"></ul>
+      </h2>
     </div>
     <script src="js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/lodash/3.0.0/lodash.compat.min.js"></script>
   </body>
 </html>
