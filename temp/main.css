@@ -1,0 +1,33 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: aliceblue; }
+
+ol {
+  display: inline-block; }
+
+.wrapper {
+  text-align: center;
+  margin: auto; }
+
+.inputZip {
+  max-width: 250px;
+  margin: auto !important;
+  padding: 20px; }
+
+.button {
+  margin-top: 10px; }
+
+.forecastList div {
+  height: 200px;
+  width: 150px;
+  background-color: white;
+  box-shadow: 5px 5px 5px darkslategrey;
+  display: inline-block;
+  margin: 15px; }
+
+.forecastList div span {
+  padding: 10px;
+  display: block;
+  font-weight: bold; }
+
+/*# sourceMappingURL=main.css.map */
