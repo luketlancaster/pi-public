@@ -2,7 +2,8 @@
 var zip,
     zipUrl,
     localZip,
-    time;
+    time,
+    quote;
 
 document.querySelector('#location').addEventListener('click', function(){
   var ipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/geolookup/q/autoip.json'
@@ -19,6 +20,10 @@ document.querySelector('#location').addEventListener('click', function(){
 document.querySelector('#userZip').addEventListener('click', function(){
   zip = document.querySelector('#inputZip').value;
   zipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/forecast10day/q/' + zip + '.json';
+  var swansonUrl = 'http://ron-swanson-quotes.herokuapp.com/quotes';
+  getJSON(swansonUrl, function(result){
+    quote = result.quote;
+  });
   getJSON(zipUrl, function(result){
     var listOfDays = [];
     for(var i = 0; i < 5; i++){
@@ -37,8 +42,10 @@ document.querySelector('#userZip').addEventListener('click', function(){
     var forecastContainer = document.querySelector('#forecastList');
     var timeDiv = document.querySelector('#currentTime');
     var time = moment().format('MMMM Do YYYY, h:mm a');
+    var quoteDiv = document.querySelector('#quote');
     timeDiv.innerHTML = time;
     forecastContainer.innerHTML = '';
+    quoteDiv.innerHTML = quote;
     forecastContainer.appendChild(makeDays(listOfDays));
   });
 });
