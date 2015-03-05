@@ -45,7 +45,7 @@ document.querySelector('#userZip').addEventListener('click', function(){
     var quoteDiv = document.querySelector('#quote');
     timeDiv.innerHTML = time;
     forecastContainer.innerHTML = '';
-    quoteDiv.innerHTML = quote;
+    quoteDiv.innerHTML = '"' + quote + '" - Ron Swanson';
     forecastContainer.appendChild(makeDays(listOfDays));
   });
 });
