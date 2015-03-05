@@ -1,7 +1,8 @@
 'use strict';
-var zip;
-var zipUrl;
-var localZip;
+var zip,
+    zipUrl,
+    localZip,
+    time;
 
 document.querySelector('#location').addEventListener('click', function(){
   var ipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/geolookup/q/autoip.json'
@@ -34,6 +35,9 @@ document.querySelector('#userZip').addEventListener('click', function(){
       listOfDays.push(currentDay);
     }
     var forecastContainer = document.querySelector('#forecastList');
+    var timeDiv = document.querySelector('#currentTime');
+    var time = moment().format('MMMM Do YYYY, h:mm a');
+    timeDiv.innerHTML = time;
     forecastContainer.innerHTML = '';
     forecastContainer.appendChild(makeDays(listOfDays));
   });
