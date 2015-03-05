@@ -1,0 +1,30 @@
+@import './foundation/scss/normalize';
+@import './foundation/scss/foundation';
+
+.top-data, .contact-info-box {
+  text-align: center;
+}
+
+.contact-table {
+  width: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.remove {
+  margin: 10px;
+}
+
+img {
+  width: 100px;
+}
+
+img:hover {
+  box-shadow: 0 0 10px #ccc;
+}
+
+th, td {
+  width: 10%;
+}
