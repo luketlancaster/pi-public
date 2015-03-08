@@ -5,7 +5,8 @@ var zip,
     time,
     quote,
     city,
-    state;
+    state,
+    currentTemp;
 
 document.querySelector('#location').addEventListener('click', function(){
   var ipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/geolookup/q/autoip.json'
@@ -23,7 +24,7 @@ document.querySelector('#location').addEventListener('click', function(){
 
 document.querySelector('#userZip').addEventListener('click', function(){
   zip = document.querySelector('#inputZip').value;
-  zipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/geolookup/forecast10day/q/' + zip + '.json';
+  zipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/conditions/geolookup/forecast10day/q/' + zip + '.json';
   var swansonUrl = 'http://ron-swanson-quotes.herokuapp.com/quotes';
   getJSON(swansonUrl, function(result){
     quote = result.quote;
@@ -48,8 +49,11 @@ document.querySelector('#userZip').addEventListener('click', function(){
     var time = moment().format('MMMM Do YYYY, h:mm a');
     var quoteDiv = document.querySelector('#quote');
     var locationDiv = document.querySelector('#currentPlace');
+    var tempDiv = document.querySelector('#currentTemp');
+    currentTemp = result.current_observation.feelslike_f;
     city = result.location.city;
     state = result.location.state;
+    tempDiv.innerHTML = 'Currently it feels like ' + currentTemp + ' degrees';
     timeDiv.innerHTML = time;
     forecastContainer.innerHTML = '';
     quoteDiv.innerHTML = '"' + quote + '" - Ron Swanson';
