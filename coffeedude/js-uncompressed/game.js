@@ -1,0 +1,1 @@
+var game = new Phaser.Game(800, 640, Phaser.CANVAS, 'abe');
