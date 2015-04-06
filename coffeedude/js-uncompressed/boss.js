@@ -190,7 +190,7 @@
       jwbBounceCount = 0;
     }
 
-    if (game.time.now > bulletTime && jwbHitCount < 3 && hitCount >= 0) {
+    if (game.time.now > bulletTime && jwbHitCount < 3 && hitCount <= 0) {
       bullet = bullets.getFirstExists(false);
       if(bullet) {
         bullet.reset(jwb.x, jwb.y);
@@ -221,7 +221,7 @@
       healthText.text = 'Health: ' + hitCount;
     }
 
-    if(hitCount === 0) {
+    if(hitCount <= 0) {
       gameOver();
     }
 
