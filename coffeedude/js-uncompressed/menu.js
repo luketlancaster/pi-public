@@ -43,8 +43,8 @@
     button = game.add.button(50, 275, 'start', startClick, this);
     button.scale.setTo(.5);
 
-    enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-    enterKey.onDown.add(startLvl2);
+    // enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+    // enterKey.onDown.add(startLvl2);
   }
 
   function startClick () {

@@ -5,7 +5,6 @@
 
   var jumpTimer = 0,
       map,
-      layer,
       platformLayer,
       cups,
       cup,
@@ -58,9 +57,7 @@
     map.addTilesetImage('blocks');
     map.addTilesetImage('trees2');
 
-    layer = map.createLayer('background');
     platformLayer = map.createLayer('platforms');
-    layer.resizeWorld();
     platformLayer.resizeWorld();
     map.setCollisionByExclusion([1]);
 
@@ -243,7 +240,7 @@
       }
 
       if(player.body.y >= 700) {
-        player.body.y = 0;
+        gameOver();
       }
 
       if(player.body.velocity.x >= 0) {
