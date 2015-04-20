@@ -352,7 +352,7 @@
     player.animations.play('damage');
     explosionSound.play();
     enemy.body.x = -200000;
-    player.body.x -= 75;
+    player.body.y -= 75;
     --hitCount;
     healthText.text = 'Health: ' + hitCount;
   }
