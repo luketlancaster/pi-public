@@ -1,0 +1,3 @@
+[submodule "coffeedude"]
+	path = coffeedude
+	url = git@github.com:luketlancaster/coffeedude.git
