@@ -244,7 +244,7 @@ a:focus {
     -moz-animation-timing-function: linear;
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0 {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -261,7 +261,7 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0 {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -434,4 +434,9 @@ body {
 
 .row {
   width: 100%
+}
+
+.white {
+  /*background-color: white;*/
+  /*opacity: 0.6;*/
 }
