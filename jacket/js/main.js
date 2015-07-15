@@ -33,7 +33,7 @@ $(function(){
 
   function display(data) {
     var temp = data.forecast.simpleforecast.forecastday[1].high.fahrenheit;
-    if (temp > 80) {
+    if (temp > 67) {
       $("#iconBox").toggleClass("hidden")
       $("#yesOrNo").text("NO");
     }
