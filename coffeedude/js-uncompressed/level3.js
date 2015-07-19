@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  game.state.add('lvl1', {create:create, update:update});
+  game.state.add('level3', {create:create, update:update});
 
   var jumpTimer = 0,
       map,
@@ -27,10 +27,15 @@
       shotSound,
       jumpSound,
       explosionSound,
+      fallSound,
       player,
       hat,
+      bar,
       cupPath = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150, -150],
-      cupIndex;
+      cupIndex,
+      cameraScrollRate = .05,
+      playSound = false,
+      gameStarted = false;
 
   function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -41,12 +46,12 @@
     //sounds
     explosionSound = game.add.audio('explosion');
     shotSound = game.add.audio('shoot');
+    fallSound = game.add.audio('fall');
     game.world.setBounds(0, 0, 800, 640);
 
-    game.bg = game.add.tileSprite(0, 0, 7040, 640, 'bookshelf');
+    game.bg = game.add.tileSprite(0, 0, 7040, 640, 'soviatFlag');
 
-    map = game.add.tilemap('background');
-    map.addTilesetImage('steampunk');
+    map = game.add.tilemap('level3');
     map.addTilesetImage('blocks');
     map.setCollisionByExclusion([1]);
 
@@ -55,17 +60,21 @@
 
     //player stuff
 
-    player = game.add.sprite(12, 520, 'head');
+    player = game.add.sprite(12, 420, 'head');
     game.physics.enable(player, Phaser.Physics.ARCADE);
-    player.body.collideWorldBounds = true;
+    player.body.collideWorldBounds = false;
     player.body.setSize(25, 50, 19, 0);
-    player.body.gravity.y = 450;
+    player.body.gravity.y = 400;
     player.animations.add('left', [2]);
     player.animations.add('right', [1]);
 
     cursors = game.input.keyboard.createCursorKeys();
     fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    game.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
+
+    //force bar
+    bar = game.add.sprite(-10, 0, 'forceBar');
+    game.physics.enable(bar, Phaser.Physics.ARCADE);
+    bar.fixedToCamera = true;
 
     //collectables
 
@@ -96,46 +105,45 @@
 
 
     //enemies
-
-    var cupPosition = [553,985, 1099, 1214, 1879, 2712, 2929, 3197, 3767, 4291, 4736, 4995, 5244, 6347, 6989];
+    var cupPosition = [627,982,1397,1912,2263,2417,2552,2709,3094,3503,3919,4402,4975,5392,5841,6323,6703];
     var cupCounter = 0;
 
     cups = game.add.group();
     cups.enableBody = true;
-    cups.createMultiple(15, 'cup');
-    cups.setAll('body.gravity.y', 950);
+    cups.createMultiple(17, 'cup');
     cups.forEach(function(cup) {
       game.physics.enable(cup, Phaser.Physics.ARCADE);
       cup.anchor.set(0.5, 0.5);
       cup.body.setSize(44, 63);
       cup.body.gravity.y = 950;
+      cup.body.collideWorldBounds = true;
       cup.animations.add('left', [0, 1, 2, 3], 10, true);
       cup.animations.add('right', [0, 3, 2, 1], 10, true);
     });
 
     cups.forEach(function(cup) {
-      cup.reset(cupPosition[cupCounter], 300);
+      cup.reset((cupPosition[cupCounter] + 12), 600);
       cupCounter++;
     }, this);
 
     //cans
 
-    var coffeecanPosition = [327, 740, 1640, 2190, 2500, 3390, 4098, 4410, 5450, 5800, 6160, 6566, 6844];
+    var coffeecanPosition = [493,756,1205,1557,1813,2070,2902,3286,3696,4152,4593,4756,5168,5619,6072,6484,6867];
     var canCounter = 0;
 
     coffeecans = game.add.group();
     coffeecans.enableBody = true;
-    coffeecans.createMultiple(13, 'coffeecan');
+    coffeecans.createMultiple(17, 'coffeecan');
     coffeecans.setAll('collideWorldBounds', true);
     coffeecans.forEach(function(coffeecan) {
       game.physics.enable(coffeecan, Phaser.Physics.ARCADE);
-      coffeecan.body.gravity.y = 950;
+      coffeecan.body.gravity.y = 0;
       coffeecan.anchor.set(0.5, 0.5);
       coffeecan.body.setSize(41, 48);
     });
 
     coffeecans.forEach(function(coffeecan) {
-      coffeecan.reset(coffeecanPosition[canCounter], 300);
+      coffeecan.reset((coffeecanPosition[canCounter] + 20), -48);
       canCounter++;
     }, this);
 
@@ -168,12 +176,11 @@
   function update() {
 
       game.physics.arcade.collide(player, layer);
-      game.physics.arcade.collide(hat, layer);
       game.physics.arcade.collide(records, layer);
       game.physics.arcade.collide(cups, layer);
       game.physics.arcade.collide(coffeecans, layer);
+      game.physics.arcade.collide(player, bar);
       game.physics.arcade.overlap(player, records, collectRecords, null, this);
-      game.physics.arcade.overlap(player, hat, collectHat, null, this);
       game.physics.arcade.overlap(bowties, layer, killBowtie, null, this);
       game.physics.arcade.overlap(bowties, cups, cupHandler, null, this);
       game.physics.arcade.overlap(bowties, coffeecans, cupHandler, null, this);
@@ -186,7 +193,6 @@
 
       player.body.velocity.x = 0;
 
-
       /* actual movement */
       if (cursors.left.isDown) {
         player.body.velocity.x = -250;
@@ -198,38 +204,49 @@
         player.frame = 0;
       }
 
-      if (player.body.touching.down) {
-        player.body.velocity.x = player.body.velocity.x / 2;
+      if (player.body.blocked.down) {
+        player.body.velocity.y = -275;
+        gameStarted = true;
       }
-
-      if (cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer) {
-          player.body.velocity.y = -275;
-          jumpTimer = game.time.now + 750;
-      }
-
       /* flying movement */
       // if (cursors.left.isDown) {
-      //   player.body.velocity.x = -750;
+      //   player.body.velocity.x = -350;
       //   player.animations.play('left');
       // } else if (cursors.right.isDown) {
-      //   player.body.velocity.x = 750;
+      //   player.body.velocity.x = 350;
       //   player.animations.play('right');
       // } else {
       //   player.frame = 0;
       //   player.body.velocity.x = 0;
       // }
-
+      //
       // if(cursors.up.isDown) {
-      //   player.body.velocity.y = -750;
+      //   player.body.velocity.y = -250;
       // } else if(cursors.down.isDown) {
-      //   player.body.velocity.y = 750;
+      //   player.body.velocity.y = 250;
       // } else {
       //   player.body.velocity.y = 0;
       // }
+      // if (player.body.onFloor() && game.time.now > jumpTimer) {
+      //     player.body.velocity.y = -350;
+      //     jumpTimer = game.time.now + 750;
+      // }
+
+      if (gameStarted && player.body.position.x > 300 ) {
+        game.camera.x = (game.camera.x + 2)
+      }
+
+      if (player.x < game.cameraLastX) {
+        player.x + 2
+      }
 
       if(game.camera.x !== game.cameraLastX){
-        game.bg.x -= 0.4 * (game.cameraLastX - game.camera.x);
+        game.bg.x -= 0.2 * (game.cameraLastX - game.camera.x);
         game.cameraLastX = game.camera.x;
+      }
+
+      if(player.body.y >= 700) {
+        gameOver();
       }
 
       if(player.body.velocity.x >= 0) {
@@ -238,14 +255,16 @@
         facing = 'left';
       }
 
-      //cups
+      // cups
       cups.forEachAlive(function(cup) {
-        if(cup.body.onFloor()) {
-          cup.body.velocity.y = -350;
+        if(cup.body.y > 559) {
+          cup.body.velocity.y = -650;
           cup.animations.play('left');
         }
-
-        if(cup.body.x - player.body.x <= 300) {
+        if(cup.body.y >= 655) {
+          cup.kill();
+        }
+        if(cup.body.x - player.body.x <= 200) {
           cupFire(cup);
         }
       });
@@ -253,7 +272,25 @@
       //coffeecans
       coffeecans.forEachAlive(function(can){
         can.body.velocity.x = 0;
-        can.body.velocity.x = cupPath[cupIndex];
+        if (can.body.position.y > 493) {
+          can.body.velocity.x = cupPath[cupIndex];
+        }
+        if(can.body.x - player.body.x <= 200) {
+          can.body.gravity.y = 1000;
+        }
+        if(can.body.velocity.y > 0 && can.body.position.y < -47) {
+          if (!fallSound.isPlaying) {
+            fallSound.play();
+          }
+        }
+        if(can.body.position.y > 493) {
+          can.body.gravity.y = 0;
+        }
+        if(can.body.position.y === 495) {
+          if(!hitSound.isPlaying) {
+            hitSound.play();
+          }
+        }
       });
       cupIndex = cupIndex + 1 >= cupPath.length ? 0 : cupIndex + 1;
 
@@ -275,7 +312,6 @@
         }
       });
 
-
     if (score % 10 === 1) {
       hitCount++;
       score++;
@@ -285,7 +321,6 @@
     if(hitCount === 0) {
       gameOver();
     }
-
   }
 
   function fireBowtie() {

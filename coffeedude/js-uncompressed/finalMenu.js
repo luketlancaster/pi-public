@@ -15,7 +15,7 @@
   }
 
   function backToStart () {
-    this.game.state.start('menu');
+    this.game.state.start('level3');
   }
 
   // function startLvl2(){
