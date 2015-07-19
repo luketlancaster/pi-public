@@ -20,7 +20,7 @@
       records,
       record,
       healthText,
-      hitCount = 2,
+      hitCount,
       score,
       scoreText,
       fireButton,
@@ -40,8 +40,8 @@
   function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     cupIndex = 0;
-    score = 0;
-    game.score = score;
+    score = game.score;
+    hitCount = game.hitCount;
 
     //sounds
     explosionSound = game.add.audio('explosion');
