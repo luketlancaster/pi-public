@@ -38,7 +38,7 @@
     game.load.audio('shoot', './assets/Pecheew.m4a');
     game.load.audio('explosion', './assets/Explosion.m4a');
     game.load.audio('jump', './assets/Whoop.m4a');
-    game.load.audio('fall   ', './assets/fall.m4a');
+    game.load.audio('fall', './assets/fall.m4a');
   }
 
   function create(){
