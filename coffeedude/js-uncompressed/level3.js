@@ -49,7 +49,7 @@
     fallSound = game.add.audio('fall');
     game.world.setBounds(0, 0, 800, 640);
 
-    game.bg = game.add.tileSprite(0, 0, 7040, 640, 'soviatFlag');
+    game.bg = game.add.tileSprite(0, 0, 7040, 640, 'sovietflag');
 
     map = game.add.tilemap('level3');
     map.addTilesetImage('blocks');

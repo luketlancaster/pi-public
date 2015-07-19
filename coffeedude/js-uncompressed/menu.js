@@ -14,7 +14,7 @@
     game.load.spritesheet('head', './assets/player/headsheet.png', 64, 64, 3);
     game.load.spritesheet('jwb', './assets/enemies/johnwilkesbooth.png', 128, 137, 2);
     game.load.spritesheet('banner', './assets/theatrebanner.png', 48, 21, 3);
-    game.load.image('soviatFlag', './assets/soviatFlag.png');
+    game.load.image('sovietflag', './assets/sovietflag.png');
     game.load.image('forceBar', './assets/forcebar.png');
     game.load.image('bullet', './assets/enemies/bullet.png');
     game.load.image('bossBG', './assets/theatre.jpg');
