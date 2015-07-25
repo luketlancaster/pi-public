@@ -40,8 +40,8 @@
   function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     cupIndex = 0;
-    score = game.score;
-    hitCount = game.hitCount;
+    score = game.score || 0;
+    hitCount = game.hitCount || 2;
 
     //sounds
     explosionSound = game.add.audio('explosion');
