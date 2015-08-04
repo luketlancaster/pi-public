@@ -25,6 +25,18 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+// $(window).scroll(function() {
+//   $(".timeline-block").each( function() {
+//       if( $(window).scrollTop() > $(this).offset().top - 200 && $(this).hasClass('hidden')) {
+//         $(this).toggleClass('hidden');
+//         $(this).addClass('slideInUp');
+//         console.log("hide")
+//       } else {
+//         $(this).addClass('opacity',0);
+//       }
+//   });
+// });
+
 $('div.modal').on('show.bs.modal', function() {
 	var modal = this;
 	var hash = modal.id;

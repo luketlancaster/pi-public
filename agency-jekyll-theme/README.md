@@ -1,3 +1,11 @@
+##TODO
+
+* Link up RSVP form to database (to be made) for easy access
+* Take that and export to CSV/Excell
+* Make timeline show up on scroll (javascript, look at Allison's site and Refills)
+* Flesh out with actual content
+
+
 Agency Jekyll theme
 ====================
 
@@ -5,7 +13,7 @@ Agency theme based on [Agency bootstrap theme ](http://startbootstrap.com/templa
 
 # How to use
 
-###Portfolio 
+###Portfolio
 
 Portfolio projects are in '/_posts'
 
