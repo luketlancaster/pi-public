@@ -3948,6 +3948,10 @@ section#contact .section-heading {
     color: #fff;
 }
 
+section#contact .section-subheading {
+  margin-bottom: 40px;
+}
+
 section#contact .form-group {
     margin-bottom: 25px;
 }
