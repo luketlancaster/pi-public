@@ -27,11 +27,14 @@ $('.navbar-collapse ul li a').click(function() {
 
 fields = {};
 
+fb = new Firebase("https://weddin.firebaseio.com/attendees");
+
 $('#form_button').click(function(event) {
   event.preventDefault();
   $('#contactForm').find("input").each(function() {
     return fields[this.name] = $(this).val();
   });
+  fields.message = $("#message").val();
   return $.ajax({
     dataType: 'jsonp',
     url: 'https://getsimpleform.com/messages/ajax?form_api_token=737d286e909632d0d32d9f283c87cfc0',
@@ -40,9 +43,10 @@ $('#form_button').click(function(event) {
       email: fields.email,
       attending: fields.attending,
       number: fields.number,
-      message: $("#message").val()
+      message: fields.message
     }
   }).done(function() {
+    fb.push(fields);
     $("#form_button").text("Thanks!");
     $("#email").val('');
     $("#name").val('');
