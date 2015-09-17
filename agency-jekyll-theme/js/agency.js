@@ -25,6 +25,34 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+fields = {};
+
+$('#form_button').click(function(event) {
+  event.preventDefault();
+  $('#contactForm').find("input").each(function() {
+    return fields[this.name] = $(this).val();
+  });
+  return $.ajax({
+    dataType: 'jsonp',
+    url: 'https://getsimpleform.com/messages/ajax?form_api_token=737d286e909632d0d32d9f283c87cfc0',
+    data: {
+      name: fields.name,
+      email: fields.email,
+      attending: fields.attending,
+      number: fields.number,
+      message: $("#message").val()
+    }
+  }).done(function() {
+    $("#form_button").text("Thanks!");
+    $("#email").val('');
+    $("#name").val('');
+    $("#attending").val('');
+    $("#number").val('');
+    $("#message").val('');
+  });
+});
+
+
 // $(window).scroll(function() {
 //   $(".timeline-block").each( function() {
 //       if( $(window).scrollTop() > $(this).offset().top - 200 && $(this).hasClass('hidden')) {
