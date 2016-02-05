@@ -145,7 +145,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(/img/beach.jpg) no-repeat top center scroll;
+    background: url(/img/beach.jpg) no-repeat top center fixed;
     background-color: #000000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -160,7 +160,7 @@ a:focus {
   padding: 100px 0;
   text-align: center;
   color: #888;
-  background: url(/img/sea.jpg) no-repeat bottom center scroll;
+  background: url(/img/sea.jpg) no-repeat bottom center fixed;
   bacground-color: #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -286,7 +286,7 @@ a:focus {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(/img/downloads-bg.jpg) no-repeat center center scroll;
+    background: url(/img/downloads-bg.jpg) no-repeat center center fixed;
     background-color: #000000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -305,7 +305,7 @@ a:focus {
   width: 100%;
   padding: 50px 0;
   color: #fff;
-  background: url(/img/surfers.jpg) no-repeat bottom center scroll;
+  background: url(/img/surfers.jpg) no-repeat bottom center fixed;
   background-color: #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
