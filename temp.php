@@ -11,17 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //if type==post, do some function?
 function feels_like_temp($lat, $lon) {
 
-    $url = $url."/q/".$lat.",".$lon.".json";
-    $request = new HttpRequest($url, HttpRequest::METH_GET);
+    return json_encode(array("ret" => "you got it dude", $lat, $lon));
+
+    // $url = $url."/q/".$lat.",".$lon.".json";
+    // $request = new HttpRequest($url, HttpRequest::METH_GET);
     
-    try {
-        $request->send();
-        if ($request->getResponseCode() == 200) {
-            // gotta make sure it's actually json
-            $response = json_decode($request->getResponseBody()));
-            // if it is, pull the 'feels like' temp and return it
-        }
-    } catch (HttpException $ex) {
-        echo $ex;
-    }
+    // try {
+    //     $request->send();
+    //     if ($request->getResponseCode() == 200) {
+    //         // gotta make sure it's actually json
+    //         $response = json_decode($request->getResponseBody()));
+    //         // if it is, pull the 'feels like' temp and return it
+    //     }
+    // } catch (HttpException $ex) {
+    //     echo $ex;
+    // }
 }

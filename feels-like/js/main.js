@@ -13,6 +13,14 @@ $(function(){
   $('#send-it').click(function () {
     console.log('clicked');
 
+    var lat = 1;
+    var lon = 2;
+
+    $.post('../temp.php', {lat: lat, lon: lon}, function (data) {
+      console.log('back');
+      console.log(data);
+    }, 'json');
+
     // $.ajax({
     //   url: 'https://luketlancaster.com/temp.php',
     //   type: 'POST',
