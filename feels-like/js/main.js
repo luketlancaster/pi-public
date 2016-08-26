@@ -3,21 +3,41 @@ $(function(){
   var error,
       options,
       success,
-      lat,
-      lon,
       url = "http://api.wunderground.com/api/db432a740561cd8d/forecast/geolookup/conditions",
-      response,
-      clickCount = 0,
-      time = moment().format();
+      response;
 
   options = {
     timeout: 5000,
     maximumAge: 0
   };
+  $('#send-it').click(function () {
+    console.log('clicked');
+
+    // $.ajax({
+    //   url: 'https://luketlancaster.com/temp.php',
+    //   type: 'POST',
+    //   dataType: 'json',
+    //   data: {lat: lat, lon: lon},
+    // })
+    // .done(function(data) {
+    //   display(data);
+    // });
+  })
 
   success = function(pos) {
-    lat = pos.coords.latitude;
-    lon = pos.coords.longitude;
+    var lat = pos.coords.latitude;
+    var lon = pos.coords.longitude;
+    // ajax post to the php instead
+    // $.ajax({
+    //   url: 'https://luketlancaster.com/temp.php',
+    //   type: 'POST',
+    //   dataType: 'json',
+    //   data: {lat: lat, lon: lon},
+    // })
+    // .done(function(data) {
+    //   display(data);
+    // });
+
     $.getJSON( url + "/q/" + lat + "," + lon + ".json", function( data ) {
       response = data;
     })
