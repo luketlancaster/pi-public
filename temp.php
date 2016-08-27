@@ -2,8 +2,12 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      // The request is using the POST method
-  return feels_like_temp($_POST['lat'], $_POST['lon']);
+  feels_like_temp($_POST['lat'], $_POST['lon']);
+} else {
+  header("Location: https://luketlancaster.com");
+  exit();
 }
+
 
 
 function feels_like_temp($lat, $lon) {
