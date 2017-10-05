@@ -1,5 +1,6 @@
 <?php
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      // The request is using the POST method
   feels_like_temp($_POST['lat'], $_POST['lon']);
