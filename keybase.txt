@@ -1,0 +1,54 @@
+Luk://keybase.io/luketlancaster
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://luketlancaster.com
+  * I am luketlancaster (https://keybase.io/luketlancaster) on keybase.
+  * I have a public key ASBl2GiKqdTz2zI0y1a-4cF8sRjsO2AGtg4ckwCuxi61-Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012065d8688aa9d4f3db3234cb56bee1c17cb118ec3b6006b60e1c9300aec62eb5f90a",
+      "host": "keybase.io",
+      "kid": "012065d8688aa9d4f3db3234cb56bee1c17cb118ec3b6006b60e1c9300aec62eb5f90a",
+      "uid": "e7ae1f08f80bd27ac35ea1f9d396e419",
+      "username": "luketlancaster"
+    },
+    "merkle_root": {
+      "ctime": 1507137761,
+      "hash": "0e4abec68df234e7b045c193614c80d2cb83e7267ac92eec3ccadc1235c7b3cfefcb62cdc5be4d61d27bf8a16fcd1e406391f31f1ae64e4233c8a09e5ef065dd",
+      "hash_meta": "6ab0044eacb51d1ce64a737d99a3ff66d3a00a685675a47f435c06a929fdc7d1",
+      "seqno": 1495749
+    },
+    "service": {
+      "hostname": "luketlancaster.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507137771,
+  "expire_in": 504576000,
+  "prev": "8adcf60995a250ba19cd9c76a9218e0a195440b30c7aa0214170f92ae21a7998",
+  "seqno": 8,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgZdhoiqnU89syNMtWvuHBfLEY7DtgBrYOHJMArsYutfkKp3BheWxvYWTFA1B7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNjVkODY4OGFhOWQ0ZjNkYjMyMzRjYjU2YmVlMWMxN2NiMTE4ZWMzYjYwMDZiNjBlMWM5MzAwYWVjNjJlYjVmOTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNjVkODY4OGFhOWQ0ZjNkYjMyMzRjYjU2YmVlMWMxN2NiMTE4ZWMzYjYwMDZiNjBlMWM5MzAwYWVjNjJlYjVmOTBhIiwidWlkIjoiZTdhZTFmMDhmODBiZDI3YWMzNWVhMWY5ZDM5NmU0MTkiLCJ1c2VybmFtZSI6Imx1a2V0bGFuY2FzdGVyIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTA3MTM3NzYxLCJoYXNoIjoiMGU0YWJlYzY4ZGYyMzRlN2IwNDVjMTkzNjE0YzgwZDJjYjgzZTcyNjdhYzkyZWVjM2NjYWRjMTIzNWM3YjNjZmVmY2I2MmNkYzViZTRkNjFkMjdiZjhhMTZmY2QxZTQwNjM5MWYzMWYxYWU2NGU0MjMzYzhhMDllNWVmMDY1ZGQiLCJoYXNoX21ldGEiOiI2YWIwMDQ0ZWFjYjUxZDFjZTY0YTczN2Q5OWEzZmY2NmQzYTAwYTY4NTY3NWE0N2Y0MzVjMDZhOTI5ZmRjN2QxIiwic2Vxbm8iOjE0OTU3NDl9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoibHVrZXRsYW5jYXN0ZXIuY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMzMifSwiY3RpbWUiOjE1MDcxMzc3NzEsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiOGFkY2Y2MDk5NWEyNTBiYTE5Y2Q5Yzc2YTkyMThlMGExOTU0NDBiMzBjN2FhMDIxNDE3MGY5MmFlMjFhNzk5OCIsInNlcW5vIjo4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQKlgXkmX+9fpccCtZhUDAFCTlc5OT1ecwdBQW2hwjga7ZjJolI95uF6xAi6FJ6k+jXtyNJX3/I6tYh5QYvFi2wmoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCwQ/CukKkmyIjlULzGCxv98YYwjT55iaCkwWWjPv4NYqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/luketlancaster
+
+==================================================================

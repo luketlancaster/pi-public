@@ -21,7 +21,6 @@ $(function(){
   navigator.geolocation.getCurrentPosition(success, error, options);
 
   function display(temp) {
-    console.log(temp);
     if (temp > 70) {
       $("#iconBox").toggleClass("hidden")
       $("#yesOrNo").text("NO");
