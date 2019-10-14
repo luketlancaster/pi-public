@@ -10,9 +10,9 @@
       currentTemp;
 
   document.querySelector('#location').addEventListener('click', function(){
-    var ipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/geolookup/q/autoip.json'
+    var ipUrl = 'https://api.wunderground.com/api/db432a740561cd8d/geolookup/q/autoip.json'
     //zip;
-    zipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/forecast10day/q/' + zip + '.json';
+    zipUrl = 'https://api.wunderground.com/api/db432a740561cd8d/forecast10day/q/' + zip + '.json';
     getJSON(ipUrl, function(result) {
       localZip = result.location.zip;
       city = result.location.city;
@@ -25,8 +25,8 @@
 
   document.querySelector('#userZip').addEventListener('click', function(){
     zip = document.querySelector('#inputZip').value;
-    zipUrl = 'http://api.wunderground.com/api/db432a740561cd8d/conditions/geolookup/forecast10day/q/' + zip + '.json';
-    var swansonUrl = 'http://ron-swanson-quotes.herokuapp.com/quotes';
+    zipUrl = 'https://api.wunderground.com/api/db432a740561cd8d/conditions/geolookup/forecast10day/q/' + zip + '.json';
+    var swansonUrl = 'https://ron-swanson-quotes.herokuapp.com/quotes';
     getJSON(swansonUrl, function(result){
       quote = result.quote;
     });
